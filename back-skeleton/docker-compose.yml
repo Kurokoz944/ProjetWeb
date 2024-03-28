@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  database:
+    container_name: GroupeWeb
+    image: postgres
+    environment:
+      POSTGRES_USER : root
+      POSTGRES_PASSWORD: toor
+      POSTGRES_DB: projetweb
+    ports:
+      - "5432:5432"
