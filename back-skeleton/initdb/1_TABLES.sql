@@ -28,3 +28,9 @@ create table student_course
     student_id int not null,
     course_id int not null
 );
+
+ALTER SEQUENCE students_id_seq RESTART 10000 INCREMENT BY 50;
+ALTER SEQUENCE majors_id_seq RESTART 10000 INCREMENT BY 50;
+ALTER SEQUENCE courses_id_seq RESTART 10000 INCREMENT BY 50;
+ALTER SEQUENCE student_course_id_seq RESTART 10000 INCREMENT BY 50;
+
