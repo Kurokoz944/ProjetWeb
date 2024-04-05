@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Major {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "majors_id_seq")
     private Long id;
     private String name;
     private String description;

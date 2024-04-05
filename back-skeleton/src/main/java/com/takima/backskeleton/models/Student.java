@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "students_id_seq" )
     private Long id;
     @Column(name = "first_name")
     private String firstName;

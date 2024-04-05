@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "courses_id_seq")
     private Long id;
     private String name;
     private Integer hours;
