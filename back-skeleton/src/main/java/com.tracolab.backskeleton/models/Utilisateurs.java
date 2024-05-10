@@ -30,11 +30,7 @@ import java.util.*;
     private int nbreArticlesEnCours;
     @Column(name = "nbreArticlesPublies")
     private int nbreArticlesPublies;
-    @OneToMany(mappedBy = "articles")
-    @JoinTable(
-            name = "article_utilisateur",
-            joinColumns = @JoinColumn(name = "utilisateurs_id"),
-            inverseJoinColumns = @JoinColumn(name = "articles_id"))
+    @OneToMany(mappedBy = "utilisateur")
     private List<Articles> articles;
 
     private Utilisateurs(Builder builder){

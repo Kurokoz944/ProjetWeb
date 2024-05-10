@@ -27,11 +27,8 @@ public class Articles {
     private int VoteNegatif;
     @Column(name = "PhotoArticle")
     private String PhotoArticle;
+    @JoinColumn(name = "utilisateurs_id")
     @ManyToOne
-    @JoinTable(
-            name = "article_utilisateur",
-            joinColumns = @JoinColumn(name = "articles_id"),
-            inverseJoinColumns = @JoinColumn(name = "utilisateurs_id"))
     private Utilisateurs utilisateur;
 
 
