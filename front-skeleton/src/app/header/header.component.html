@@ -1,0 +1,25 @@
+<nav>
+   <div>
+     <img src="assets/Tracolab-logo.png" routerLink="" />
+
+
+    <div class="navigation">
+      <mat-nav-list>
+        @for (link of links; track link) {
+          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+           <span>{{ link.name }}</span>
+          </a>
+        }
+      </mat-nav-list>
+    </div>
+
+    <div class="search-and-actions">
+        <input type="text" placeholder="Recherche…" class="search-input" />
+        <div class="actions">
+          <button class="action-button login">Connexion</button>
+          <button class="action-button post">Poster</button>
+        </div>
+    </div>
+    </div>
+
+</nav>
