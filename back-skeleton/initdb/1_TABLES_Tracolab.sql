@@ -58,9 +58,9 @@ CREATE OR REPLACE PROCEDURE tracolab.PS_ArticleDelete(in_UtilisateurId INT,
     AS $$
     BEGIN
     DELETE
-    FROM articles
+    FROM tracolab.articles
     WHERE id = in_ArticleId;
-    UPDATE utilisateurs
+    UPDATE tracolab.utilisateurs
     SET nbreArticlesEnCours = nbreArticlesEnCours - 1
     WHERE id = in_UtilisateurId;
     END;
@@ -77,7 +77,7 @@ CREATE OR REPLACE PROCEDURE tracolab.PS_ArticleCreate(in_UtilisateurId INT,
     DECLARE
         new_id INT;
     BEGIN
-        INSERT INTO articles (NomArticle,
+        INSERT INTO tracolab.articles (NomArticle,
                               AncienPrix,
                               NouveauPrix,
                               VotePositif,
@@ -93,14 +93,16 @@ CREATE OR REPLACE PROCEDURE tracolab.PS_ArticleCreate(in_UtilisateurId INT,
                 in_PhotoArticle,
                 NOW(),
                 NOW()) RETURNING id INTO new_id;
-        INSERT INTO article_utilisateur(utilisateurs_id,
+        INSERT INTO tracolab.article_utilisateur(utilisateurs_id,
                                         articles_id,
                                         supprim)
         VALUES(in_UtilisateurId,
                new_id,
                0);
-        UPDATE utilisateurs
-        SET nbreArticlesEnCours = nbreArticlesEnCours + 1 AND nbreArticlesPublies + 1
+        UPDATE tracolab.utilisateurs
+        SET nbreArticlesEnCours = nbreArticlesEnCours + 1,
+            nbreArticlesPublies = nbreArticlesPublies + 1
         WHERE id = in_UtilisateurId;
+
     END;
 $$;
