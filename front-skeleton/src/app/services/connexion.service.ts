@@ -25,8 +25,8 @@ export class ConnexionService {
     }).subscribe(
       (data: Utilisateurs) => {
         // La requête a réussi, afficher les détails de l'utilisateur ou effectuer d'autres opérations
-        console.log('Utilisateur récupéré : ', data);
-        alert('Utilisateur récupéré : ' + data);
+        console.log('Utilisateur récupéré : ', data.email);
+        alert('Utilisateur récupéré : ' + data.pseudo);
       },
       (error) => {
         // Une erreur s'est produite lors de la requête, afficher un message d'erreur

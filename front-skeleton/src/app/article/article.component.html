@@ -7,7 +7,7 @@
     <!-- Your content here -->
     <button mat-button>Vote Positif: {{ article.votePositif }}</button>
     <button mat-button>Vote Négatif: {{ article.voteNegatif }}</button>
-    <button mat-button>Utilisateur: {{ article.utilisateur }}</button>
+    <button mat-button>Utilisateur: {{ article.utilisateur.pseudo }}</button>
   </mat-card-content>
   <img class="article-image" [src]="article.photoArticle" alt="{{ article.nomArticle }}">
 </mat-card>

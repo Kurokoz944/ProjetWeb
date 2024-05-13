@@ -1,7 +1,7 @@
 package com.tracolab.backskeleton.models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Getter;import com.fasterxml.jackson.annotation.*;
 
 @Entity
 @Table(name = "articles", schema = "tracolab")
@@ -22,11 +22,8 @@ public class Articles {
     private int votenegatif;
     @Column(name = "photoarticle")
     private String photoarticle;
-    @ManyToOne
-    @JoinTable(
-            name = "article_utilisateur",
-            joinColumns = @JoinColumn(name = "articles_id"),
-            inverseJoinColumns = @JoinColumn(name = "utilisateurs_id"))
+    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.LAZY)
     private Utilisateurs utilisateurs;
 
 

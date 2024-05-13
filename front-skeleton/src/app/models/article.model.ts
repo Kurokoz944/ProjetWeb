@@ -8,5 +8,5 @@ export interface Article {
   votePositif: number; // Nombre de votes positifs
   voteNegatif: number; // Nombre de votes négatifs
   photoArticle: string; // URL de la photo de l'article
-  utilisateur: string; // Nom de l'utilisateur ayant posté l'article
+  utilisateur: Utilisateurs; // Nom de l'utilisateur ayant posté l'article
 }

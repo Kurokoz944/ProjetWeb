@@ -36,7 +36,7 @@ public class ArticlesService {
     }
 
     public void createArticle(ArticlesDto articlesDto) {
-        articlesDao.createArticle(articlesDto.getUtilisateur().getId(), articlesDto.getNomArticle(), articlesDto.getAncienPrix(), articlesDto.getNouveauPrix(), articlesDto.getPhotoArticle());
+        articlesDao.createArticle(articlesDto.getUtilisateur().getId(), articlesDto.getNomarticle(), articlesDto.getAncienprix(), articlesDto.getNouveauprix(), articlesDto.getPhotoarticle());
     }
     public void updateArticle(ArticlesDto articlesDto, Long id) {
         articlesDao.findById(id)

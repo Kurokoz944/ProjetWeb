@@ -9,7 +9,7 @@ INSERT INTO tracolab.utilisateurs (id,
                                    nbrearticlespublies,
                                    datecreation,
                                    datemaj)
-VALUES (1,
+VALUES (10,
         'admin',
         'admin',
         '2001-03-20',

@@ -2,7 +2,7 @@ package com.tracolab.backskeleton.models;
 
 import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Getter;import com.fasterxml.jackson.annotation.*;
 
 import java.time.Instant;
 import java.util.*;
@@ -30,6 +30,7 @@ import java.util.*;
     private int nbreArticlesEnCours;
     @Column(name = "nbrearticlespublies")
     private int nbreArticlesPublies;
+    @JsonBackReference
     @OneToMany(mappedBy = "utilisateurs")
     private List<Articles> articles;
 
