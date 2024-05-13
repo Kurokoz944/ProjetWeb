@@ -1,43 +1,62 @@
-import { NgModule } from "@angular/core"
-import { BrowserModule } from "@angular/platform-browser"
-
-import { AppRoutingModule } from "app-routing.module"
-import { AppComponent } from "app.component"
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
-import { NavbarComponent } from "navbar/navbar.component"
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http"
+import { CommonModule } from "@angular/common";
 import { MatListModule } from "@angular/material/list"
-import { HomeComponent } from "home/home.component"
-import { StudentsComponent } from "students/students.component"
-import { StudentDetailsComponent } from "students/student-details/student-details.component"
-import { FormsModule } from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
-import { MajorsComponent } from "majors/majors.component"
-import { MajorStudentsComponent } from "majors/major-students/major-students.component"
-import { HttpClientModule } from "@angular/common/http"
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { BannerComponent } from './banner/banner.component';
+import { ListeComponent } from './liste/liste.component';
+import { FooterComponent } from './footer/footer.component';
+import { ArticleComponent } from './article/article.component';
+import { InscriptionComponent} from "./inscription/inscription.component";
+
+import { ArticleService } from './services/articles.service';
+import { ConnexionComponent } from "./connexion/connexion.component"
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }, // Redirection vers HomeComponent sur la route par défaut ('/')
+  { path: 'login', component: ConnexionComponent } // Route vers LoginComponent
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
-    StudentsComponent,
-    StudentDetailsComponent,
-    MajorsComponent,
-    MajorStudentsComponent,
+    HeaderComponent,
+    BannerComponent,
+    ListeComponent,
+    FooterComponent,
+    ArticleComponent,
+    InscriptionComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule,
+    AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    CommonModule,
+    MatListModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [ArticleService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

@@ -1,7 +1,6 @@
 package com.tracolab.backskeleton.DTO;
 
 import com.tracolab.backskeleton.models.Articles;
-import com.tracolab.backskeleton.DTO.ArticlesDto;
 
 import java.io.IOException;
 
@@ -23,7 +22,7 @@ public class ArticlesMapper {
                 .AncienPrix(articles.getAncienPrix())
                 .NouveauPrix(articles.getNouveauPrix())
                 .PhotoArticle(articles.getPhotoArticle())
-                .utilisateur(articles.getUtilisateur())
+                .utilisateur(articles.getUtilisateurs())
                 .build();
     }
 }

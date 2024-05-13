@@ -1,0 +1,13 @@
+<mat-card *ngFor="let article of articles">
+  <mat-card-header>
+    <mat-card-title>{{ article.nomArticle }}</mat-card-title>
+    <mat-card-subtitle>{{ article.AncienPrix }} -> {{ article.NouveauPrix }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Your content here -->
+    <button mat-button>Vote Positif: {{ article.VotePositif }}</button>
+    <button mat-button>Vote Négatif: {{ article.VoteNegatif }}</button>
+    <button mat-button>Utilisateur: {{ article.utilisateur }}</button>
+  </mat-card-content>
+  <img class="article-image" [src]="article.PhotoArticle" alt="{{ article.nomArticle }}">
+</mat-card>

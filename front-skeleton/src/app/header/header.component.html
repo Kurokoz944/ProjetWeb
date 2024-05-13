@@ -1,0 +1,27 @@
+<nav>
+   <div>
+     <img src="assets/Tracolab-logo.png" routerLink="" />
+
+
+    <div class="navigation">
+      <mat-nav-list>
+        @for (link of links; track link) {
+          <a mat-list-item routerLink="{{ link.href }}" routerLinkActive="active">
+           <span>{{ link.name }}</span>
+          </a>
+        }
+      </mat-nav-list>
+    </div>
+
+    <div class="search-and-actions">
+        <input type="text" placeholder="Recherche…" class="search-input" />
+      <div class="actions">
+        <button *ngIf="!utilisateur" class="action-button login" routerLink="connexion">Connexion</button>
+        <button *ngIf="!utilisateur" class="action-button post" routerLink="inscription">Inscription</button>
+        <button *ngIf="utilisateur" class="action-button my-account" routerLink="mon-compte">Mon compte</button>
+        <button *ngIf="utilisateur" class="action-button logout">Déconnexion</button>
+      </div>
+    </div>
+    </div>
+
+</nav>

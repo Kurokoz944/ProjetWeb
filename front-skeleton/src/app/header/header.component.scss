@@ -1,0 +1,79 @@
+@use "theme";
+
+nav {
+  height: 80px;
+  background: #666a72;
+
+  div {
+    height: 100%;
+    display: flex;
+    justify-content: space-between; // Add this line
+    align-items: center;
+
+    img {
+      margin-left: 20px;
+      height: 60px;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+
+  span,
+  a {
+    font-size: large;
+    color: theme.$white;
+    transition: 0.3s;
+    white-space: nowrap;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.search-and-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .search-input {
+    border-radius: 20px;
+    border: 1px solid rgba(209, 213, 219, 1);
+    padding: 10px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+
+    .action-button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .login {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .post {
+      background-color: #1d4a7a;
+      color: #fff;
+    }
+
+  }
+}

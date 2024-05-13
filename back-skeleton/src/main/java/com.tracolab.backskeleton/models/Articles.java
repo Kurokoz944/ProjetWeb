@@ -1,12 +1,7 @@
 package com.tracolab.backskeleton.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-import java.time.Instant;
-import java.util.*;
 
 @Entity
 @Table(name = "articles", schema = "tracolab")
@@ -27,9 +22,12 @@ public class Articles {
     private int VoteNegatif;
     @Column(name = "PhotoArticle")
     private String PhotoArticle;
-    @JoinColumn(name = "utilisateurs_id")
     @ManyToOne
-    private Utilisateurs utilisateur;
+    @JoinTable(
+            name = "article_utilisateur",
+            joinColumns = @JoinColumn(name = "articles_id"),
+            inverseJoinColumns = @JoinColumn(name = "utilisateurs_id"))
+    private Utilisateurs utilisateurs;
 
 
     private Articles(Articles.Builder builder){
@@ -40,7 +38,7 @@ public class Articles {
         this.VotePositif = builder.VotePositif;
         this.VoteNegatif = builder.VoteNegatif;
         this.PhotoArticle = builder.PhotoArticle;
-        this.utilisateur = builder.utilisateur;
+        this.utilisateurs = builder.utilisateur;
     }
 
     public Articles(){}

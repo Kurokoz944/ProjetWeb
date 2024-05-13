@@ -1,5 +1,6 @@
 package com.tracolab.backskeleton.controllers;
 
+import com.takima.backskeleton.models.Student;
 import com.tracolab.backskeleton.DTO.UtilisateursDto;
 import com.tracolab.backskeleton.models.Utilisateurs;
 import com.tracolab.backskeleton.services.UtilisateursService;
@@ -15,8 +16,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UtilisateursController {
     private final UtilisateursService utilisateursService;
+
+    @GetMapping("/connexion")
+    public Utilisateurs connexion(@RequestParam(required = false) String email, @RequestParam(required = false) String motdepasse) {
+        if (email != null && motdepasse !=null) {
+            return utilisateursService.Connexion(email, motdepasse);
+        }
+        return null;
+    }
+
     @GetMapping("")
-    public List<Utilisateurs> listStudents() {
+    public List<Utilisateurs> listUtilisateurs() {
         return utilisateursService.findAll();
     }
 
