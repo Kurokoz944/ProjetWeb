@@ -8,20 +8,20 @@ public class ArticlesMapper {
     public static Articles fromDto(ArticlesDto dto, Long id) throws IOException {
         return new Articles.Builder()
                 .id(id)
-                .nomarticle(dto.getNomArticle())
-                .ancienprix(dto.getAncienPrix())
-                .nouveauprix(dto.getNouveauPrix())
-                .photoarticle(dto.getPhotoArticle())
+                .nomarticle(dto.getNomarticle())
+                .ancienprix(dto.getAncienprix())
+                .nouveauprix(dto.getNouveauprix())
+                .photoarticle(dto.getPhotoarticle())
                 .utilisateur(dto.getUtilisateur())
                 .build();
     }
 
     public static ArticlesDto toDto (Articles articles){
         return ArticlesDto.builder()
-                .nomArticle(articles.getNomarticle())
-                .AncienPrix(articles.getAncienprix())
-                .NouveauPrix(articles.getNouveauprix())
-                .PhotoArticle(articles.getPhotoarticle())
+                .nomarticle(articles.getNomarticle())
+                .ancienprix(articles.getAncienprix())
+                .nouveauprix(articles.getNouveauprix())
+                .photoarticle(articles.getPhotoarticle())
                 .utilisateur(articles.getUtilisateurs())
                 .build();
     }
