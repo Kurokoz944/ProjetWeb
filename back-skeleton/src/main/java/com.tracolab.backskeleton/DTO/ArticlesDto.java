@@ -12,11 +12,11 @@ import java.util.List;
 @Builder
 @Getter
 public class ArticlesDto {
-    private String nomArticle;
-    private int AncienPrix;
-    private int NouveauPrix;
-    private int VotePositif;
-    private int VoteNegatif;
-    private String PhotoArticle;
+    private String nomarticle;
+    private int ancienprix;
+    private int nouveauprix;
+    private int votepositif;
+    private int votenegatif;
+    private String photoarticle;
     private Utilisateurs utilisateur;
 }

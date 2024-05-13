@@ -16,6 +16,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ArticlesController {
     private final ArticlesService articlesService;
+
+    @GetMapping("")
+    public List<Articles> listArticles() {
+        return articlesService.findAll();
+    }
+
     @GetMapping("/{id}")
     public Articles getArticlesById(@PathVariable Long id) {
         return articlesService.getById(id);

@@ -3,29 +3,29 @@ CREATE SCHEMA tracolab;
 create table tracolab.utilisateurs
 (
     id SERIAL PRIMARY KEY,
-    Nom VARCHAR(50) null,
-    Prenom VARCHAR(50) null,
-    DateNaissance date null,
+    nom VARCHAR(50) null,
+    prenom VARCHAR(50) null,
+    datenaissance date null,
     pseudo VARCHAR(50) not null,
     email text null,
     motdepasse text not null,
-    nbreArticlesEnCours INT,
-    nbreArticlesPublies INT,
-    DATECREATION TIMESTAMP,
-    DATEMAJ TIMESTAMP
+    nbrearticlesencours INT,
+    nbrearticlespublies INT,
+    datecreation TIMESTAMP,
+    datemaj TIMESTAMP
 );
 
 create table tracolab.articles
 (
     id SERIAL PRIMARY KEY,
-    NomArticle VARCHAR(50) null,
-    AncienPrix INT,
-    NouveauPrix INT,
-    VotePositif INT,
-    VoteNegatif INT,
-    PhotoArticle VARCHAR(255),
-    DATECREATION TIMESTAMP,
-    DATEMAJ TIMESTAMP
+    nomarticle VARCHAR(50) null,
+    ancienprix INT,
+    nouveauprix INT,
+    votepositif INT,
+    votenegatif INT,
+    photoarticle VARCHAR(255),
+    datecreation TIMESTAMP,
+    datemaj TIMESTAMP
 );
 
 create table tracolab.article_utilisateur(

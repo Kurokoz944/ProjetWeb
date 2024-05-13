@@ -21,6 +21,13 @@ public class ArticlesService {
     @Autowired
     private ArticlesDao articlesDao;
 
+    public List<Articles> findAll() {
+        Iterable<Articles> it = articlesDao.findAll();
+        List <Articles> articles = new ArrayList<>();
+        it.forEach(articles::add);
+        return articles ;
+    }
+
     public Articles getById(Long id){ return articlesDao.findById(id).orElseThrow();}
 
     @Transactional

@@ -8,64 +8,75 @@ import { Article } from '../models/article.model'; // Assurez-vous d'importer vo
   providedIn: 'root'
 })
 export class ArticleService {
-  private apiUrl = 'https://exemple.com/api/articles'; // Remplacez l'URL par votre URL d'API
+  private apiUrl = 'http://localhost:8080/articles'; // Remplacez l'URL par votre URL d'API
 
   constructor(private http: HttpClient) { }
 
   // Méthode pour récupérer les articles depuis l'API
+
   getArticle(): Observable<Article[]> {
-
-
-      const mockArticles: Article[] = [
+    // return this.http.get<Article[]>(`${this.apiUrl}`);
+    const mockArticles: Article[] = [
       {
         id: 1,
         nomArticle: 'Article 1',
-        AncienPrix: 100,
-        NouveauPrix: 80,
-        VotePositif: 10,
-        VoteNegatif: 2,
-        PhotoArticle: 'url-to-image-1',
+        ancienPrix: 100,
+        nouveauPrix: 80,
+        votePositif: 10,
+        voteNegatif: 2,
+        photoArticle: 'url-to-image-1',
         utilisateur: 'User 1'
       },
       {
         id: 2,
         nomArticle: 'Article 2',
-        AncienPrix: 200,
-        NouveauPrix: 150,
-        VotePositif: 20,
-        VoteNegatif: 5,
-        PhotoArticle: 'url-to-image-2',
+        ancienPrix: 200,
+        nouveauPrix: 150,
+        votePositif: 20,
+        voteNegatif: 5,
+        photoArticle: 'url-to-image-2',
         utilisateur: 'User 2'
       },
-        {
-          id: 3,
-          nomArticle: 'Article 3',
-          AncienPrix: 300,
-          NouveauPrix: 250,
-          VotePositif: 30,
-          VoteNegatif: 8,
-          PhotoArticle: 'url-to-image-3',
-          utilisateur: 'User 3'
-        },
-        {
-          id: 4,
-          nomArticle: 'Article 4',
-          AncienPrix: 400,
-          NouveauPrix: 350,
-          VotePositif: 40,
-          VoteNegatif: 10,
-          PhotoArticle: 'url-to-image-4',
-          utilisateur: 'User 4'
-        },
+      {
+        id: 3,
+        nomArticle: 'Article 3',
+        ancienPrix: 300,
+        nouveauPrix: 250,
+        votePositif: 30,
+        voteNegatif: 8,
+        photoArticle: 'url-to-image-3',
+        utilisateur: 'User 3'
+      },
+      {
+        id: 4,
+        nomArticle: 'Article 4',
+        ancienPrix: 400,
+        nouveauPrix: 350,
+        votePositif: 40,
+        voteNegatif: 10,
+        photoArticle: 'url-to-image-4',
+        utilisateur: 'User 4'
+      },
       // Add more mock articles as needed
     ];
 
     return of(mockArticles);
-
-
-    /*
-    return this.http.get<Article[]>(this.apiUrl);
-    */
-
   }
+
+  getArticleById(id: number): Observable<Article> {
+    return this.http.get<Article>(`${this.apiUrl}/${id}`);
+  }
+
+  deleteArticle(utilisateurId: number, articleId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${utilisateurId}/${articleId}`);
+  }
+
+  createArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(`${this.apiUrl}`, article);
+  }
+
+  updateArticle(article: Article, id: number): Observable<Article> {
+    return this.http.put<Article>(`${this.apiUrl}/${id}`, article);
+  }
+
 }

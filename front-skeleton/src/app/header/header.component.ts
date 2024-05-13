@@ -16,8 +16,6 @@ export class HeaderComponent {
     this.links.push({ name: "Bons Plans", href: "articles" })
     this.links.push({ name: "Compte", href: "Compte" })
     this.links.push({ name: "Messagerie", href: "Messagerie" })
-    this.links.push({ name: "Inscription", href: "inscription"})
-    this.links.push({ name: "Connexion", href: "connexion"})
   }
 
   ngOnInit(): void {

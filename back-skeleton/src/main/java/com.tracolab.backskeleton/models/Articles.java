@@ -10,18 +10,18 @@ public class Articles {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "articles_id_seq" )
     private Long id;
-    @Column(name = "NomArticle")
-    private String nomArticle;
-    @Column(name = "AncienPrix")
-    private int AncienPrix;
-    @Column(name = "NouveauPrix")
-    private int NouveauPrix;
-    @Column(name = "VotePositif")
-    private int VotePositif;
-    @Column(name = "VoteNegatif")
-    private int VoteNegatif;
-    @Column(name = "PhotoArticle")
-    private String PhotoArticle;
+    @Column(name = "nomarticle")
+    private String nomarticle;
+    @Column(name = "ancienprix")
+    private int ancienprix;
+    @Column(name = "nouveauprix")
+    private int nouveauprix;
+    @Column(name = "votepositif")
+    private int votepositif;
+    @Column(name = "votenegatif")
+    private int votenegatif;
+    @Column(name = "photoarticle")
+    private String photoarticle;
     @ManyToOne
     @JoinTable(
             name = "article_utilisateur",
@@ -32,12 +32,12 @@ public class Articles {
 
     private Articles(Articles.Builder builder){
         this.id = builder.id;
-        this.nomArticle = builder.nomArticle;
-        this.AncienPrix = builder.AncienPrix;
-        this.NouveauPrix = builder.NouveauPrix;
-        this.VotePositif = builder.VotePositif;
-        this.VoteNegatif = builder.VoteNegatif;
-        this.PhotoArticle = builder.PhotoArticle;
+        this.nomarticle = builder.nomarticle;
+        this.ancienprix = builder.ancienprix;
+        this.nouveauprix = builder.nouveauprix;
+        this.votepositif = builder.votepositif;
+        this.votenegatif = builder.votenegatif;
+        this.photoarticle = builder.photoarticle;
         this.utilisateurs = builder.utilisateur;
     }
 
@@ -45,40 +45,40 @@ public class Articles {
 
     public static class Builder {
         private Long id;
-        private String nomArticle;
-        private int AncienPrix;
-        private int NouveauPrix;
-        private int VotePositif;
-        private int VoteNegatif;
-        private String PhotoArticle;
+        private String nomarticle;
+        private int ancienprix;
+        private int nouveauprix;
+        private int votepositif;
+        private int votenegatif;
+        private String photoarticle;
         private Utilisateurs utilisateur;
 
         public Articles.Builder id (Long id) {
             this.id = id;
             return this;
         }
-        public Articles.Builder nomArticle (String nom) {
-            this.nomArticle = nomArticle;
+        public Articles.Builder nomarticle (String nom) {
+            this.nomarticle = nomarticle;
             return this;
         }
-        public Articles.Builder ancienPrix (int ancienPrix) {
-            this.AncienPrix = ancienPrix;
+        public Articles.Builder ancienprix (int ancienprix) {
+            this.ancienprix = ancienprix;
             return this;
         }
-        public Articles.Builder nouveauPrix (int nouveauPrix) {
-            this.NouveauPrix = nouveauPrix;
+        public Articles.Builder nouveauprix (int nouveauprix) {
+            this.nouveauprix = nouveauprix;
             return this;
         }
-        public Articles.Builder votePositif (int votePositif) {
-            this.VotePositif = votePositif;
+        public Articles.Builder votepositif (int votepositif) {
+            this.votepositif = votepositif;
             return this;
         }
-        public Articles.Builder voteNegatif (int voteNegatif) {
-            this.VoteNegatif = voteNegatif;
+        public Articles.Builder votenegatif (int votenegatif) {
+            this.votenegatif = votenegatif;
             return this;
         }
-        public Articles.Builder photoArticle (String photoArticle) {
-            this.PhotoArticle = photoArticle;
+        public Articles.Builder photoarticle (String photoarticle) {
+            this.photoarticle = photoarticle;
             return this;
         }
         public Articles.Builder utilisateur (Utilisateurs utilisateur) {

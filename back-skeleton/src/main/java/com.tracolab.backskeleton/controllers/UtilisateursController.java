@@ -1,6 +1,5 @@
 package com.tracolab.backskeleton.controllers;
 
-import com.takima.backskeleton.models.Student;
 import com.tracolab.backskeleton.DTO.UtilisateursDto;
 import com.tracolab.backskeleton.models.Utilisateurs;
 import com.tracolab.backskeleton.services.UtilisateursService;
