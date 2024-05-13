@@ -9,4 +9,6 @@ import java.util.List;
 
 @Repository
 public interface UtilisateursDao extends JpaRepository<Utilisateurs, Long> {
+    @Query("SELECT u FROM Utilisateurs u WHERE u.email= :email AND u.motdepasse = :motdepasse ")
+    Utilisateurs connexion(String email, String motdepasse);
 }

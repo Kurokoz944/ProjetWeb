@@ -13,28 +13,24 @@ import java.util.*;
  public class Utilisateurs {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "utilisateurs_id_seq")
-    private long id;
-    @Column(name="Nom")
+    private Long id;
+    @Column(name="nom")
     private String nom;
-    @Column(name = "Prenom")
+    @Column(name = "prenom")
     private String prenom;
-    @Column(name = "DateNaissance")
+    @Column(name = "datenaissance")
     private Date dateNaissance;
     @Column(name = "pseudo")
     private String pseudo;
-    @Column(name = "email")
+    @Column(name = "email", unique=true)
     private String email;
     @Column(name = "motdepasse")
     private String motdepasse;
-    @Column(name = "nbreArticlesEnCours")
+    @Column(name = "nbrearticlesencours")
     private int nbreArticlesEnCours;
-    @Column(name = "nbreArticlesPublies")
+    @Column(name = "nbrearticlespublies")
     private int nbreArticlesPublies;
-    @OneToMany(mappedBy = "articles")
-    @JoinTable(
-            name = "article_utilisateur",
-            joinColumns = @JoinColumn(name = "utilisateurs_id"),
-            inverseJoinColumns = @JoinColumn(name = "articles_id"))
+    @OneToMany(mappedBy = "utilisateurs")
     private List<Articles> articles;
 
     private Utilisateurs(Builder builder){
@@ -64,43 +60,43 @@ import java.util.*;
         private int nbreArticlesPublies;
         private List<Articles> articles;
 
-        public Utilisateurs.Builder id (Long id) {
+        public Builder id (Long id) {
             this.id = id;
             return this;
         }
-        public Utilisateurs.Builder nom (String nom) {
+        public Builder nom (String nom) {
             this.nom = nom;
             return this;
         }
-        public Utilisateurs.Builder prenom (String prenom) {
+        public Builder prenom (String prenom) {
             this.prenom = prenom;
             return this;
         }
-        public Utilisateurs.Builder dateNaissance (Date dateNaissance) {
+        public Builder dateNaissance (Date dateNaissance) {
             this.dateNaissance = dateNaissance;
             return this;
         }
-        public Utilisateurs.Builder pseudo (String pseudo) {
+        public Builder pseudo (String pseudo) {
             this.pseudo = pseudo;
             return this;
         }
-        public Utilisateurs.Builder email (String email) {
+        public Builder email (String email) {
             this.email = email;
             return this;
         }
-        public Utilisateurs.Builder motdepasse (String motdepasse) {
+        public Builder motdepasse (String motdepasse) {
             this.motdepasse = motdepasse;
             return this;
         }
-        public Utilisateurs.Builder nbreArticlesEnCours (int nbreArticlesEnCours) {
+        public Builder nbreArticlesEnCours (int nbreArticlesEnCours) {
             this.nbreArticlesEnCours = nbreArticlesEnCours;
             return this;
         }
-        public Utilisateurs.Builder nbreArticlesPublies (int nbreArticlesPublies) {
+        public Builder nbreArticlesPublies (int nbreArticlesPublies) {
             this.nbreArticlesPublies = nbreArticlesPublies;
             return this;
         }
-        public Utilisateurs.Builder articles (List<Articles> articles) {
+        public Builder articles (List<Articles> articles) {
             this.articles = articles;
             return this;
         }

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import { ListeComponent } from "./liste/liste.component"
 import { ListeResolver } from './liste/liste.resolver';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 const routes: Routes = [
@@ -13,8 +15,10 @@ const routes: Routes = [
     component: ListeComponent,
     resolve: {
       articles: ListeResolver,
-    },
-  }
+    }
+  },
+  { path: "inscription", component: InscriptionComponent },
+  { path: "connexion", component: ConnexionComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 package com.tracolab.backskeleton.services;
 
+import com.takima.backskeleton.models.Student;
 import com.tracolab.backskeleton.DAO.UtilisateursDao;
 import com.tracolab.backskeleton.DTO.UtilisateursDto;
 import com.tracolab.backskeleton.DTO.UtilisateursMapper;
@@ -59,5 +60,9 @@ public class UtilisateursService {
             throw new RuntimeException("Error with Student image", e);
         }
         utilisateursDao.save(student);
+    }
+
+    public Utilisateurs Connexion(String email, String motdepasse) {
+        return utilisateursDao.connexion(email, motdepasse);
     }
 }

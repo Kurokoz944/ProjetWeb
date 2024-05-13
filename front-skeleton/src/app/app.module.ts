@@ -8,6 +8,8 @@ import { MatListModule } from "@angular/material/list"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,8 +19,16 @@ import { BannerComponent } from './banner/banner.component';
 import { ListeComponent } from './liste/liste.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticleComponent } from './article/article.component';
+import { InscriptionComponent} from "./inscription/inscription.component";
 
 import { ArticleService } from './services/articles.service';
+import { ConnexionComponent } from "./connexion/connexion.component"
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }, // Redirection vers HomeComponent sur la route par défaut ('/')
+  { path: 'login', component: ConnexionComponent } // Route vers LoginComponent
+];
+
 
 @NgModule({
   declarations: [
@@ -29,6 +39,8 @@ import { ArticleService } from './services/articles.service';
     ListeComponent,
     FooterComponent,
     ArticleComponent,
+    InscriptionComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +52,9 @@ import { ArticleService } from './services/articles.service';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]

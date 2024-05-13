@@ -1,7 +1,5 @@
 package com.tracolab.backskeleton.DTO;
 
-import com.takima.backskeleton.DTO.StudentDto;
-import com.takima.backskeleton.models.Student;
 import com.tracolab.backskeleton.models.Utilisateurs;
 import jdk.jshell.execution.Util;
 
@@ -15,6 +13,7 @@ public class UtilisateursMapper {
                 .prenom(dto.getPrenom())
                 .dateNaissance(dto.getDateNaissance())
                 .pseudo(dto.getPseudo())
+                .email(dto.getEmail())
                 .motdepasse(dto.getMotdepasse())
                 .nbreArticlesEnCours(dto.getNbreArticlesEnCours())
                 .nbreArticlesPublies(dto.getNbreArticlesPublies())
@@ -28,6 +27,7 @@ public class UtilisateursMapper {
                 .prenom(utilisateurs.getPrenom())
                 .dateNaissance(utilisateurs.getDateNaissance())
                 .pseudo(utilisateurs.getPseudo())
+                .email(utilisateurs.getEmail())
                 .motdepasse(utilisateurs.getMotdepasse())
                 .nbreArticlesEnCours(utilisateurs.getNbreArticlesEnCours())
                 .nbreArticlesPublies(utilisateurs.getNbreArticlesPublies())
